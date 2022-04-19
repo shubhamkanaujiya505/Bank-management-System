@@ -60,3 +60,8 @@ void Bank :: perData(){
     total++;
 
 }
+class main{
+    private:
+    int a;
+    char name;
+}
