@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
 class Bank{
@@ -14,15 +15,18 @@ class Bank{
             total = 0; // total initialized 0
         }
         void choice();
+        void perData();
 };
 int main()
 {
     Bank b; 
     b.choice();
+    b.perData();
     return 0;
 }
 void Bank :: choice(){
     char ch;
+    while(1){// for infinite loop
     cout<<"\n\n Press.. !!"<<endl;
     cout<<"1. Create a new account"<<endl;
     cout<<"2. View customers list"<<endl;
@@ -31,4 +35,28 @@ void Bank :: choice(){
     cout<<"5. For transaction"<<endl;
     cout<<"6. Remove existing account"<<endl;
     cout<<"7. Exit"<<endl;
+    ch = getch();
+    switch(ch){
+        case '1': 
+        Bank :: perData();
+        break;
+
+    }
+    }
+}
+void Bank :: perData(){
+    cout<<"Enter data of person"<<total+1<<endl;// which person enterd data
+    // store all data when user entred data
+    cout<<"Enter name: ";
+    cin>>person[total].name;
+    cout<<"Id";
+    cin>>person[total].Id;
+    cout<<"Address";
+    cin>>person[total].address;
+    cout<<"Contact";
+    cin>>person[total].contact;
+    cout<<"Total Cash";
+    cin>>person[total].cash;
+    total++;
+
 }
