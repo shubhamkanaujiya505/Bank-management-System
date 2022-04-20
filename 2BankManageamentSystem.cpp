@@ -62,6 +62,7 @@ void Bank :: perData(){
     total++;
 
 }
+<<<<<<< HEAD
 void Bank :: show(){
     for (int i= i = 0; i < total; i++)
     {
@@ -75,3 +76,10 @@ void Bank :: show(){
 
 }
 
+=======
+class main{
+    private:
+    int a;
+    char name;
+}
+>>>>>>> 933cc0f2ee9e84a49c759d01c52b9708aa903d4f
