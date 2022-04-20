@@ -24,6 +24,7 @@ public:
     void update();
     void search();
     void transactions();
+    void del();
 };
 int main()
 {
@@ -33,6 +34,7 @@ int main()
     b.show();
     b.update();
     b.search();
+
     return 0;
 }
 void Bank ::choice()
@@ -49,23 +51,51 @@ void Bank ::choice()
         cout << "6. Remove existing account" << endl;
         cout << "7. Exit" << endl;
         ch = getch();
+        system("CLS");
         switch (ch)
         {
         case '1':
             Bank ::perData();
             break;
         case '2':
-            Bank::show();
+            if (total == 0)
+            {
+                cout << "No data is enterd" << endl;
+            }
+            else
+                Bank::show();
             break;
         case '3':
-            Bank::update();
+            if (total == 0)
+            {
+                cout << "No data is enterd" << endl;
+            }
+            else
+                Bank::update();
             break;
         case '4':
-            Bank::search();
+            if (total == 0)
+            {
+                cout << "No data is enterd" << endl;
+            }
+            else
+                Bank::search();
             break;
         case '5':
-            Bank::transactions();
+            if (total == 0)
+            {
+                cout << "No data is enterd" << endl;
+            }
+            else
+                Bank::transactions();
             break;
+        case '6':
+            if (total == 0)
+            {
+                cout << "No data is enterd" << endl;
+            }
+            else
+            Bank:: del();
         }
     }
 }
@@ -112,15 +142,15 @@ void Bank ::update()
             cout << "Contact: " << person[i].contact << endl;
             cout << "Cash: " << person[i].cash << endl;
             cout << "\nEnter new data" << endl;
-            cin >> person[total].name;
+            cin >> person[i].name;
             cout << "Id: ";
-            cin >> person[total].Id;
+            cin >> person[i].Id;
             cout << "Address: ";
-            cin >> person[total].address;
+            cin >> person[i].address;
             cout << "Contact: ";
-            cin >> person[total].contact;
+            cin >> person[i].contact;
             cout << "Total Cash: ";
-            cin >> person[total].cash;
+            cin >> person[i].cash;
             break;
         }
         if (i == total - 1)
@@ -198,4 +228,42 @@ void Bank ::update()
                 cout << "No such record found" << endl;
             }
         }
+    }
+
+    void Bank ::del()
+    {
+        char ch;
+        cout << "Press 1 to remove specific record" << endl;
+        cout << "Press 2 to remove full record" << endl;
+        ch = getch();
+        switch (ch)
+        {
+        case '1':
+            cout << "Enter id of hte student those data ypu want to delete" << endl;
+            cin >> Id;
+            for (int i = 0; i < total; i++)
+            {
+                if (Id == person[i].Id)
+                {
+                    for (int j = 0; j < total; j++)
+                        person[j].name = person[j + 1].Id;
+                    person[i].Id = person[j + 1].name;
+                    person[j].address = person[j + 1].address;
+                    person[j].contact = person[j + 1].contact;
+                    person[j].cash = person[j + 1].cash;
+                    total--;
+                    cout << "Your required data is deleted." << endl;
+                    break;
+                }
+            }
+            if (i == total - 1)
+            {
+                cout << "No such record found" << endl;
+            }
+        }
+        break;
+    case '2':
+        total = 0;
+        cout << "All records is deleted" << endl;
+        break;
     }
