@@ -16,12 +16,14 @@ class Bank{
         }
         void choice();
         void perData();
+        void show();
 };
 int main()
 {
     Bank b; 
     b.choice();
     b.perData();
+    b.show();
     return 0;
 }
 void Bank :: choice(){
@@ -45,18 +47,31 @@ void Bank :: choice(){
     }
 }
 void Bank :: perData(){
-    cout<<"Enter data of person"<<total+1<<endl;// which person enterd data
+    cout<<"Enter data of person "<<total+1<<endl;// which person enterd data
     // store all data when user entred data
     cout<<"Enter name: ";
     cin>>person[total].name;
-    cout<<"Id";
+    cout<<"Id: ";
     cin>>person[total].Id;
-    cout<<"Address";
+    cout<<"Address: ";
     cin>>person[total].address;
-    cout<<"Contact";
+    cout<<"Contact: ";
     cin>>person[total].contact;
-    cout<<"Total Cash";
+    cout<<"Total Cash: ";
     cin>>person[total].cash;
     total++;
 
 }
+void Bank :: show(){
+    for (int i= i = 0; i < total; i++)
+    {
+        cout<<"Data of person "<<i+1<<endl;
+        cout<<"Name: "<<person[i].name<<endl;
+        cout<<"ID: "<<person[i].Id<<endl;
+        cout<<"Address: "<<person[i].address<<endl;
+        cout<<"Contact: "<<person[i].contact<<endl;
+        cout<<"Cash: "<<person[i].cash<<endl;
+    }
+
+}
+

@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "xlocale": "cpp",
+        "xlocnum": "cpp",
+        "xmemory0": "cpp"
+    }
+}
